@@ -92,16 +92,15 @@ However, most of the time the bitmap will be store in main memory, which will ma
 >
 > 从一个或几个指定的目录开始，递归地转储其自给定基准日期后有所更改的全部文件和目录。所以，在逻辑转储中，转储磁带上会有一连串精心标识的目录和文件，这样就很容易满足恢复特定文件或目录的请求。
 >
-> ![文件树](https://ewr1.vultrobjects.com/imgur2/000/006/780/304_9f0_8b9.png)
+> ![304_9f0_8b9.png](https://s2.loli.net/2022/04/12/D2FJ4wHGolKeVsi.jpg)
 >
 > 1. 从起始目录开始(本例中为根目录)检查所有目录项，对每个修改过的文件在位图中标记，并递归标记所有目录(包括未被修改的)。
->    ![步骤1](https://ewr1.vultrobjects.com/imgur2/000/006/780/305_b2b_1e4.png)
-> 2. 再次递归遍历目录树，并去掉目录书中所有不含被修改过的文件或目录的目录上的标记(这一阶段结束后所有被标记的文件和目录就是最后必须被转储的)。
->    ![步骤2](https://ewr1.vultrobjects.com/imgur2/000/006/780/306_d09_ba3.png)
+>    ![305_b2b_1e4.png](https://s2.loli.net/2022/04/12/F9UDqeCJnXYjuLw.png)再次递归遍历目录树，并去掉目录书中所有不含被修改过的文件或目录的目录上的标记(这一阶段结束后所有被标记的文件和目录就是最后必须被转储的)。
+>    ![306_d09_ba3.png](https://s2.loli.net/2022/04/12/Y5szJnZxMCuVipf.png)
 > 3. 以节点号为序，扫描i节点，并转储步骤2中所有标记的目录，并为这些目录添加目录属性前缀。
->    ![步骤3](https://ewr1.vultrobjects.com/imgur2/000/006/780/307_704_ae4.png)
+>    ![307_704_ae4.png](https://s2.loli.net/2022/04/12/oCk2NaZM1f8GFOy.png)
 > 4. 转储步骤2中所有标记的文件，并为这些文件添加文件属性前缀。
->    ![步骤4](https://ewr1.vultrobjects.com/imgur2/000/006/780/308_dde_fb9.png)
+>    ![308_dde_fb9.png](https://s2.loli.net/2022/04/12/w6es4OVRd3EpoUN.png)
 
 #### Disk Consistency
 
